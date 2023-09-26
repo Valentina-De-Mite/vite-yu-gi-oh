@@ -30,7 +30,7 @@ export default {
 
 <template>
   <main>
-    <div class="container bg-light my-5 pb-5">
+    <div class="container bg-light my-5 px-5 pb-5">
       <div class="dropdown my-4">
         <button
           class="btn btn-secondary dropdown-toggle mt-3"
