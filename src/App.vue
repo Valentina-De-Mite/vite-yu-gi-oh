@@ -1,5 +1,9 @@
 <script>
 import axios from "axios";
+import AppHeader from "./components/AppHeader.vue";
+import AppMain from "./components/AppMain.vue";
+// import AppFooter from "./components/AppFooter.vue";
+
 export default {
   name: "App",
   data() {
@@ -24,44 +28,24 @@ export default {
         console.log(error);
       });
   },
+  components: {
+    AppHeader,
+    AppMain,
+  },
 };
 </script>
 
 <template>
-  <header>
-    <nav class="navbar navbar-expand navbar-light bg-light">
-      <div class="nav navbar-nav">
-        <a class="nav-item nav-link" href="#">Yu-Gi-Oh API</a>
-      </div>
-    </nav>
-  </header>
+  <body>
+    <AppHeader></AppHeader>
 
-  <!-- /header -->
+    <!-- /header -->
 
-  <main>
-    <div class="container">
-      <div class="row row-cols-1 row-cols-sm-3">
-        <div class="col" v-for="card in cards">
-          <div class="card">
-            <img
-              class="card-img-top"
-              :src="card.card_images[0].image_url"
-              alt=""
-            />
-            <div class="card-body p-2">
-              <h6 class="card-title ygo-cardTitle">{{ card.name }}</h6>
-              <p class="card-text ygo-cardText">{{ card.archetype }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
+    <AppMain></AppMain>
 
-  <!-- /main -->
-
-  <footer></footer>
-  <!-- /footer -->
+    <footer></footer>
+    <!-- /footer -->
+  </body>
 </template>
 
 <style></style>
