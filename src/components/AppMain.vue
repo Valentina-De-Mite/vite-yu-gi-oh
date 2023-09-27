@@ -21,9 +21,8 @@ export default {
 
 <template>
   <main>
-    <div class="container bg-light my-5 px-5 pb-5">
-      <SelectionArchetype></SelectionArchetype>
-
+    <SelectionArchetype></SelectionArchetype>
+    <div class="container bg-light my-3 px-5 py-5">
       <div class="row row-cols-1 row-cols-sm-5">
         <CardComponent :card="card" v-for="card in state.cards">
         </CardComponent>
@@ -34,8 +33,4 @@ export default {
   <!-- /main -->
 </template>
 
-<style scoped>
-.card-body {
-  background-color: rgb(207, 136, 4);
-}
-</style>
+<style scoped></style>

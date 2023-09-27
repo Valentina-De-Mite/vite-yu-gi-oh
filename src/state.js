@@ -6,7 +6,7 @@ export const state = reactive({
   api_urlArchetypesList: "https://db.ygoprodeck.com/api/v7/archetypes.php",
   cards: null,
   name: null,
-  archetypeName: null,
+  archetypeName: "0",
   archetypeList: "",
   // loading: true,
 
