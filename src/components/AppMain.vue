@@ -1,5 +1,6 @@
 <script>
 import { state } from "../state.js";
+import CardComponent from "./CardComponent.vue";
 
 export default {
   name: "AppMain",
@@ -11,6 +12,7 @@ export default {
   created() {
     state.fetchData();
   },
+  components: { CardComponent },
 };
 </script>
 
@@ -35,20 +37,10 @@ export default {
           <a class="dropdown-item" href="#">E</a>
         </div>
       </div>
+
       <div class="row row-cols-1 row-cols-sm-5">
-        <div class="col" v-for="card in state.cards">
-          <div class="card">
-            <img
-              class="card-img-top"
-              :src="card.card_images[0].image_url"
-              alt=""
-            />
-            <div class="card-body p-2">
-              <h6 class="card-title fs-6">{{ card.name }}</h6>
-              <p class="card-text fs-6">{{ card.archetype }}</p>
-            </div>
-          </div>
-        </div>
+        <CardComponent :card="card" v-for="card in state.cards">
+        </CardComponent>
       </div>
     </div>
   </main>
