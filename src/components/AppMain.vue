@@ -1,6 +1,7 @@
 <script>
 import { state } from "../state.js";
 import CardComponent from "./CardComponent.vue";
+import SelectionComponent from "./SelectionComponent.vue";
 
 export default {
   name: "AppMain",
@@ -12,31 +13,14 @@ export default {
   created() {
     state.fetchData();
   },
-  components: { CardComponent },
+  components: { CardComponent, SelectionComponent },
 };
 </script>
 
 <template>
   <main>
     <div class="container bg-light my-5 px-5 pb-5">
-      <div class="dropdown my-4">
-        <button
-          class="btn btn-secondary dropdown-toggle mt-3"
-          type="button"
-          id="triggerId"
-          data-bs-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          Alien
-        </button>
-        <div class="dropdown-menu" aria-labelledby="triggerId">
-          <a class="dropdown-item" href="#">B</a>
-          <a class="dropdown-item" href="#">c</a>
-          <a class="dropdown-item" href="#">D</a>
-          <a class="dropdown-item" href="#">E</a>
-        </div>
-      </div>
+      <SelectionComponent></SelectionComponent>
 
       <div class="row row-cols-1 row-cols-sm-5">
         <CardComponent :card="card" v-for="card in state.cards">

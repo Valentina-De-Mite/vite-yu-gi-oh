@@ -6,7 +6,8 @@ export const state = reactive({
   cards: null,
   name: null,
   archetype: null,
-  loading: true,
+  cardArchetype: "",
+  // loading: true,
 
   fetchData() {
     console.log(this.api_url);
