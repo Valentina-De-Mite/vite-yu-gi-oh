@@ -3,10 +3,11 @@ import axios from "axios";
 
 export const state = reactive({
   api_url: "https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0",
+  api_urlArchetypesList: "https://db.ygoprodeck.com/api/v7/archetypes.php",
   cards: null,
   name: null,
-  archetype: null,
-  cardArchetype: "",
+  archetypeName: null,
+  archetypeList: "",
   // loading: true,
 
   fetchData() {
@@ -22,5 +23,23 @@ export const state = reactive({
       .catch((error) => {
         console.log(error);
       });
+  },
+
+  fetchDataArchetypes() {
+    axios
+      .get(this.api_urlArchetypesList)
+      .then((response) => {
+        this.archetypeList = response.data;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  },
+  performSelection() {
+    // console.log(this.cards);
+    console.log(this.archetypeName);
+
+    this.api_url = this.api_url + `&archetype=${this.archetypeName}`;
+    this.fetchData();
   },
 });
